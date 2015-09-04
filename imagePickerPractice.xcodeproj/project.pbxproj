@@ -13,6 +13,8 @@
 		331F0AEC1B9952C300C14823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331F0AEB1B9952C300C14823 /* Images.xcassets */; };
 		331F0AEF1B9952C300C14823 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 331F0AED1B9952C300C14823 /* LaunchScreen.xib */; };
 		331F0AFB1B9952C300C14823 /* imagePickerPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F0AFA1B9952C300C14823 /* imagePickerPracticeTests.swift */; };
+		331F0B061B997AF300C14823 /* textFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F0B051B997AF300C14823 /* textFieldDelegate.swift */; };
+		331F0B081B99895500C14823 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F0B071B99895500C14823 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		331F0AF41B9952C300C14823 /* imagePickerPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = imagePickerPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		331F0AF91B9952C300C14823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		331F0AFA1B9952C300C14823 /* imagePickerPracticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePickerPracticeTests.swift; sourceTree = "<group>"; };
+		331F0B051B997AF300C14823 /* textFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFieldDelegate.swift; sourceTree = "<group>"; };
+		331F0B071B99895500C14823 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,14 @@
 		331F0AE11B9952C300C14823 /* imagePickerPractice */ = {
 			isa = PBXGroup;
 			children = (
+				331F0B041B997AD900C14823 /* textFieldDelegates */,
 				331F0AE41B9952C300C14823 /* AppDelegate.swift */,
 				331F0AE61B9952C300C14823 /* ViewController.swift */,
 				331F0AE81B9952C300C14823 /* Main.storyboard */,
 				331F0AEB1B9952C300C14823 /* Images.xcassets */,
 				331F0AED1B9952C300C14823 /* LaunchScreen.xib */,
 				331F0AE21B9952C300C14823 /* Supporting Files */,
+				331F0B071B99895500C14823 /* Meme.swift */,
 			);
 			path = imagePickerPractice;
 			sourceTree = "<group>";
@@ -110,6 +116,14 @@
 				331F0AF91B9952C300C14823 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		331F0B041B997AD900C14823 /* textFieldDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				331F0B051B997AF300C14823 /* textFieldDelegate.swift */,
+			);
+			name = textFieldDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				331F0AE71B9952C300C14823 /* ViewController.swift in Sources */,
+				331F0B081B99895500C14823 /* Meme.swift in Sources */,
+				331F0B061B997AF300C14823 /* textFieldDelegate.swift in Sources */,
 				331F0AE51B9952C300C14823 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
