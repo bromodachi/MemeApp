@@ -16,6 +16,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var topTextfield: UITextField!
     @IBOutlet weak var bottomTextfield: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var pickerToolbar: UIToolbar!
     //create delegates
     let textDelegate = textFieldDelegate()
@@ -29,6 +30,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         NSStrokeWidthAttributeName: -1.0]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //disable share button until image has been chosen
+        self.saveButton.enabled = false
 
         //top textfield
         self.topTextfield.text = "TOP"
@@ -57,6 +61,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
             imagePickerView.autoresizingMask = (UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleLeftMargin |
                 UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleTopMargin|UIViewAutoresizing.FlexibleWidth)
             dismissViewControllerAnimated(true, completion: nil)
+            saveButton.enabled = true
         }
     }
     
@@ -94,6 +99,9 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         self.unsubscribeToKeyboardNotification()
     }
 
+    
+    
+    //picking an image from the camera or album
     @IBAction func pickAnImage(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -108,6 +116,29 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
+    
+    
+    
+    @IBAction func shareMeme(sender: AnyObject) {
+        let memeImage = generateMemeImage()
+        let activityController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        
+        activityController.completionWithItemsHandler = {
+            (activityType, completed, returnedItems, activityError) in
+            if completed {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+        
+        }
+        self.presentViewController(activityController, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    //keyboards/ text related methods
     
     func keyboardShow(notification: NSNotification){
         self.view.frame.origin.y -= getKeyboardHeight(notification)

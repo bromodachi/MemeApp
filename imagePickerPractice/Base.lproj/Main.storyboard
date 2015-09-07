@@ -45,7 +45,13 @@
                                             <action selector="pickAnImage:" destination="vXZ-lx-hvc" id="38f-vR-0zx"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mgT-l2-IsR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YKN-PZ-Xhz"/>
+                                    <barButtonItem title="Share" id="NlG-ZB-Eg5">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="vXZ-lx-hvc" id="sXW-WQ-ubq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="w3W-Jl-Mzf"/>
                                     <barButtonItem title="Camera" id="NPJ-HS-XaI">
                                         <connections>
                                             <action selector="pickAnImageCamera:" destination="vXZ-lx-hvc" id="Rpq-Vn-uRw"/>
@@ -66,7 +72,6 @@
                             <constraint firstItem="wuQ-Pm-t0z" firstAttribute="top" secondItem="pMl-GI-ggQ" secondAttribute="bottom" constant="25" id="XEu-3I-H6q"/>
                             <constraint firstItem="qQ9-LX-zr4" firstAttribute="centerX" secondItem="wuQ-Pm-t0z" secondAttribute="centerX" id="b9R-GW-rQ5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pMl-GI-ggQ" secondAttribute="trailing" constant="76" id="dBu-Am-LY8"/>
-                            <constraint firstItem="wuQ-Pm-t0z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="536" id="dpJ-DJ-P3I"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="wuQ-Pm-t0z" secondAttribute="bottom" id="oR7-af-Ada"/>
                             <constraint firstItem="7fQ-2y-IKa" firstAttribute="top" secondItem="pMl-GI-ggQ" secondAttribute="top" id="pqj-Dc-vdZ"/>
                         </constraints>
@@ -76,6 +81,7 @@
                         <outlet property="cameraButton" destination="NPJ-HS-XaI" id="ZZR-fo-8US"/>
                         <outlet property="imagePickerView" destination="pMl-GI-ggQ" id="nJP-PX-VLt"/>
                         <outlet property="pickerToolbar" destination="wuQ-Pm-t0z" id="oYs-IZ-rMc"/>
+                        <outlet property="saveButton" destination="NlG-ZB-Eg5" id="z4m-Jd-afF"/>
                         <outlet property="topTextfield" destination="7fQ-2y-IKa" id="q3Q-N7-nvU"/>
                     </connections>
                 </viewController>
