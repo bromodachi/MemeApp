@@ -19,6 +19,8 @@ class MemesTableViewController: UIViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "createMeme")
         
+        self.navigationItem.title = "Meme"
+        
         self.memeTable.reloadData()
         
         self.tabBarController?.tabBar.hidden = false
@@ -61,5 +63,18 @@ class MemesTableViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Get the meme
+        let meme = memes[indexPath.row]
+        
+        // Get a StoryNodeController from the Storyboard
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("viewFullImage") as! ViewFullMemeController
+        controller.image = meme.memeImage
+        
+        // Push the new controller onto the stack
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 }

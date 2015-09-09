@@ -20,6 +20,11 @@ class MemesCollectionViewController : UICollectionViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "createMeme")
+        
+        self.navigationItem.title = "Meme"
          self.memesCollection.reloadData()
     }
     override func viewDidLoad() {
@@ -48,7 +53,23 @@ class MemesCollectionViewController : UICollectionViewController {
         return cell
     }
     
+    func createMeme(){
+        let storyboard = self.storyboard
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("createMeme") as! ViewController
+        self.navigationController!.pushViewController(controller, animated: true)
+        
+    }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let meme = memes[indexPath.row]
+        
+        // Get a StoryNodeController from the Storyboard
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("viewFullImage") as! ViewFullMemeController
+        controller.image = meme.memeImage
+        
+        // Push the new controller onto the stack
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
     /*var memes: [Meme]{
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }*/
