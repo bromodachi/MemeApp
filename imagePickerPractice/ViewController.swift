@@ -31,6 +31,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.hidden = true
+        
         //disable share button until image has been chosen
         self.saveButton.enabled = false
 
@@ -68,6 +70,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func save () {
         //init (topText:String, bottomText:String, orgImage: UIImage, memeImage:UIImage )
             let meme = Meme (topText: topTextfield.text, bottomText: bottomTextfield.text, orgImage:imagePickerView.image!, memeImage: generateMemeImage())
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        println(appDelegate.memes.count)
+        
     }
     
     func generateMemeImage() ->UIImage{
@@ -128,6 +135,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
             if completed {
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
+                
+                self.navigationController?.popToRootViewControllerAnimated(true)
             }
             
         
